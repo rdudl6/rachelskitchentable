@@ -622,8 +622,8 @@
   </div>
 
   <div class="filters">
-    <button class="filter-btn active" data-filter="all">🌟 All</button>
-    <button class="filter-btn" data-filter="cookbook">🍳 Cookbooks</button>
+    <button class="filter-btn" data-filter="all">🌟 All</button>
+    <button class="filter-btn active" data-filter="cookbook">🍳 Cookbooks</button>
     <button class="filter-btn" data-filter="fitness">💪 Fitness</button>
     <button class="filter-btn" data-filter="kids">🧁 Kids & Family</button>
   </div>
@@ -714,7 +714,7 @@
     });
   });
 
-  render();
+  render('cookbook');
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
