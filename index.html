@@ -160,6 +160,37 @@
   .btn-secondary { background: var(--basil); color: white; box-shadow: 0 8px 20px rgba(110, 168, 71, 0.35); }
   .btn-secondary:hover { transform: translateY(-2px); background: var(--basil-dark); }
 
+  /* ============ Instagram feed ============ */
+  .feed {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px 10px;
+  }
+  .feed-header { text-align: center; margin-bottom: 26px; }
+  .eyebrow-green {
+    display: inline-block;
+    background: var(--basil);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .feed-header h2 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 10px; }
+  .feed-header p { color: var(--muted); font-size: 16px; margin: 0; }
+  .feed-header p a { color: var(--tomato); font-weight: 600; text-decoration: none; }
+  .feed-header p a:hover { text-decoration: underline; }
+  .feed-embed {
+    background: white;
+    border-radius: var(--radius);
+    padding: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
   /* ============ Shop ============ */
   .shop {
     max-width: 1240px;
@@ -386,6 +417,19 @@
     <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" class="btn btn-secondary">🥬 Follow Along</a>
   </div>
 </header>
+
+<!-- This week on Instagram -->
+<section class="feed">
+  <div class="feed-header">
+    <span class="eyebrow-green">This Week</span>
+    <h2>Fresh from the Kitchen 🍳</h2>
+    <p>My latest posts — recipes, grocery hauls & real cooking. <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener">Follow on Instagram →</a></p>
+  </div>
+  <div class="feed-embed">
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe src="//lightwidget.com/widgets/685138c74cda5c3ba643fdb43c1076dd.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+  </div>
+</section>
 
 <!-- Shop -->
 <section id="shop" class="shop">
