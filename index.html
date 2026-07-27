@@ -660,8 +660,8 @@
     { title: "Gluten & Dairy Free Kitchen", subtitle: "Free-from without the fuss", price: "A$12.99", url: "https://payhip.com/b/yXe4d", category: "cookbook", image: "images/gluten-dairy-free.jpg" },
     { title: "Cookbook for Senior Chefs", subtitle: "Simple, nourishing recipes", price: "A$12.99", url: "https://payhip.com/b/GXzVQ", category: "cookbook", image: "images/senior-chefs.jpg" },
     { title: "High-Protein GLP-1 Cookbook", subtitle: "Protein-packed everyday meals", price: "A$12.99", url: "https://payhip.com/b/qK7GN", category: "cookbook", image: "images/high-protein.jpg" },
-    { title: "Little Chef's Sweet Treats", subtitle: "Baking with the kids", price: "A$12.99", url: "https://payhip.com/b/3nGTh", category: "cookbook", image: "images/sweet-treats.jpg" },
-    { title: "Cookbook for Junior Chefs", subtitle: "First recipes for young cooks", price: "A$12.99", url: "https://payhip.com/b/j38EL", category: "cookbook", image: "images/junior-chefs.jpg" },
+    { title: "Little Chef's Sweet Treats", subtitle: "Baking with the kids", price: "A$12.99", url: "https://payhip.com/b/3nGTh", category: ["cookbook", "kids"], image: "images/sweet-treats.jpg" },
+    { title: "Cookbook for Junior Chefs", subtitle: "First recipes for young cooks", price: "A$12.99", url: "https://payhip.com/b/j38EL", category: ["cookbook", "kids"], image: "images/junior-chefs.jpg" },
     { title: "Kids Craft Book", subtitle: "For a rainy day", price: "A$12.99", url: "https://payhip.com/b/y1EIU", category: "kids", image: "images/kids-craft.jpg" },
     { title: "STRONG START", subtitle: "6-week beginner's gym guide for women", price: "A$12.99", url: "https://payhip.com/b/7BLfM", category: "fitness", image: "images/strong-start.jpg" },
     { title: "The Strong Years", subtitle: "Complete gym guide for women 45–60+", price: "A$12.99", url: "https://payhip.com/b/tIYlv", category: "fitness", image: "images/strong-years.jpg" },
@@ -676,14 +676,22 @@
   const categoryLabel = { cookbook: "Cookbook", fitness: "Fitness", kids: "Kids" };
   const grid = document.getElementById('product-grid');
 
+  function inCategory(p, filter) {
+    if (filter === 'all') return true;
+    const cats = Array.isArray(p.category) ? p.category : [p.category];
+    return cats.includes(filter);
+  }
+  function primaryCategory(p) {
+    return Array.isArray(p.category) ? p.category[0] : p.category;
+  }
   function render(filter = 'all') {
     grid.innerHTML = '';
     products
-      .filter(p => filter === 'all' || p.category === filter)
+      .filter(p => inCategory(p, filter))
       .forEach(p => {
         const card = document.createElement('a');
         card.className = 'card';
-        card.dataset.category = p.category;
+        card.dataset.category = primaryCategory(p);
         card.href = p.url;
         card.target = '_blank';
         card.rel = 'noopener';
@@ -692,7 +700,7 @@
           : `<span class="emoji-fallback">${p.emoji}</span>`;
         card.innerHTML = `
           <div class="card-image">
-            <span class="card-badge">${categoryLabel[p.category]}</span>
+            <span class="card-badge">${categoryLabel[primaryCategory(p)]}</span>
             <span class="card-price-tag">${p.price}</span>
             ${visual}
           </div>
