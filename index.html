@@ -3,25 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rachel's Friendly Healthy Kitchen — Cookbooks & Gym Programs</title>
-<meta name="description" content="Healthy eating on a budget. Weekly grocery hauls, easy meals, cookbooks and gym programs by Rachel." />
+<title>Rachel's Kitchen Table — Delicious Healthy Meals on a Budget</title>
+<meta name="description" content="Groceries are expensive. My mission: cooking delicious, healthy meals for less. Weekly shops, easy recipes, cookbooks and gym programs." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #fff8ef;
-    --cream-2: #fdefdc;
+    --cream: #fdf7ec;
+    --cream-2: #f7ecd4;
+    --peach: #ffd4a3;
     --tomato: #e85d3a;
     --tomato-dark: #c94a2b;
-    --basil: #5a8f3d;
-    --basil-dark: #3f6a29;
+    --basil: #6ea847;
+    --basil-dark: #4f7d31;
+    --carrot: #f39c3e;
     --charcoal: #2b2320;
     --muted: #6b5f58;
     --card: #ffffff;
-    --shadow: 0 10px 30px rgba(43, 35, 32, 0.08);
-    --shadow-hover: 0 18px 40px rgba(43, 35, 32, 0.16);
-    --radius: 18px;
+    --shadow: 0 8px 24px rgba(43, 35, 32, 0.07);
+    --shadow-hover: 0 16px 36px rgba(43, 35, 32, 0.14);
+    --radius: 20px;
   }
 
   * { box-sizing: border-box; }
@@ -35,134 +37,193 @@
   }
 
   h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
-
   a { color: inherit; }
 
-  /* Top social bar */
+  /* ============ Top social bar ============ */
   .social-bar {
-    background: var(--charcoal);
-    color: var(--cream);
-    padding: 10px 20px;
+    background: linear-gradient(90deg, var(--basil) 0%, #7cb555 100%);
+    color: white;
+    padding: 18px 20px;
     display: flex;
     justify-content: center;
-    gap: 22px;
-    font-size: 14px;
+    gap: 16px;
+    font-size: 16px;
     flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
   }
-  .social-bar a {
-    color: var(--cream);
+  .social-bar::before {
+    content: '🥕  🥦  🥑  🍅  🌽  🥬  🍋  🫐  🥕  🥦  🥑  🍅  🌽  🥬  🍋  🫐';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    font-size: 90px;
+    opacity: 0.06;
+    letter-spacing: 20px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .social-link {
+    color: white;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    opacity: 0.9;
-    transition: opacity 0.2s;
+    gap: 10px;
+    padding: 10px 22px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+    position: relative;
   }
-  .social-bar a:hover { opacity: 1; }
-  .social-bar svg { width: 18px; height: 18px; }
+  .social-link:hover {
+    background: white;
+    color: var(--basil-dark);
+    transform: translateY(-2px);
+  }
+  .social-link svg { width: 22px; height: 22px; }
 
-  /* Header / Hero */
+  /* ============ Hero ============ */
   header {
-    background: linear-gradient(180deg, var(--cream-2) 0%, var(--cream) 100%);
-    padding: 60px 20px 70px;
+    background: radial-gradient(ellipse at top, var(--cream-2) 0%, var(--cream) 60%);
+    padding: 60px 20px 50px;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
-  header::before, header::after {
-    content: '';
+  .veggie-decor {
     position: absolute;
-    border-radius: 50%;
-    opacity: 0.08;
+    font-size: 48px;
+    opacity: 0.55;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
   }
-  header::before { width: 260px; height: 260px; background: var(--tomato); top: -80px; left: -60px; }
-  header::after { width: 300px; height: 300px; background: var(--basil); bottom: -120px; right: -70px; }
+  .v1 { top: 40px; left: 6%; transform: rotate(-18deg); }
+  .v2 { top: 80px; right: 8%; transform: rotate(15deg); font-size: 56px; }
+  .v3 { bottom: 20px; left: 12%; transform: rotate(10deg); font-size: 44px; }
+  .v4 { bottom: 40px; right: 10%; transform: rotate(-12deg); font-size: 52px; }
+  @media (max-width: 700px) { .veggie-decor { font-size: 34px !important; opacity: 0.35; } }
 
   .brand {
     font-family: 'Fraunces', serif;
     font-weight: 900;
-    font-size: clamp(38px, 6vw, 64px);
-    color: var(--tomato);
+    font-size: clamp(40px, 6.5vw, 68px);
     line-height: 1.05;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
     position: relative;
   }
-  .brand span { color: var(--basil); }
+  .brand .word-1 { color: var(--tomato); }
+  .brand .word-2 { color: var(--basil); font-style: italic; }
+  .brand .wave { display: inline-block; animation: wave 2.4s ease-in-out infinite; transform-origin: 70% 70%; }
+  @keyframes wave { 0%, 60%, 100% { transform: rotate(0); } 10% { transform: rotate(14deg); } 20% { transform: rotate(-8deg); } 30% { transform: rotate(14deg); } 40% { transform: rotate(-4deg); } 50% { transform: rotate(10deg); } }
+
   .tagline {
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--charcoal);
+    max-width: 660px;
+    margin: 0 auto 14px;
+    position: relative;
+    font-weight: 500;
+  }
+  .tagline strong { background: linear-gradient(180deg, transparent 60%, var(--peach) 60%); padding: 0 4px; }
+  .mission {
+    font-size: clamp(15px, 1.7vw, 17px);
     color: var(--muted);
-    max-width: 620px;
+    max-width: 600px;
     margin: 0 auto 28px;
     position: relative;
   }
   .cta-row {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
   }
   .btn {
     display: inline-block;
-    padding: 14px 26px;
+    padding: 14px 28px;
     border-radius: 999px;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     font-size: 15px;
     transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
     border: none;
     cursor: pointer;
   }
-  .btn-primary { background: var(--tomato); color: white; box-shadow: 0 6px 18px rgba(232, 93, 58, 0.35); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(232, 93, 58, 0.45); background: var(--tomato-dark); }
-  .btn-ghost { background: transparent; color: var(--charcoal); border: 2px solid var(--charcoal); }
-  .btn-ghost:hover { background: var(--charcoal); color: var(--cream); }
+  .btn-primary { background: var(--tomato); color: white; box-shadow: 0 8px 20px rgba(232, 93, 58, 0.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(232, 93, 58, 0.45); background: var(--tomato-dark); }
+  .btn-secondary { background: var(--basil); color: white; box-shadow: 0 8px 20px rgba(110, 168, 71, 0.35); }
+  .btn-secondary:hover { transform: translateY(-2px); background: var(--basil-dark); }
 
-  /* About strip */
-  .about {
-    max-width: 780px;
+  /* ============ Shop ============ */
+  .shop {
+    max-width: 1240px;
     margin: 0 auto;
-    padding: 50px 20px 20px;
-    text-align: center;
+    padding: 40px 20px 60px;
   }
-  .about h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 14px; }
-  .about p { color: var(--muted); font-size: 17px; }
+  .shop-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .shop-header .eyebrow {
+    display: inline-block;
+    background: var(--tomato);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .shop-header h2 { font-size: clamp(32px, 4vw, 46px); margin-bottom: 10px; }
+  .shop-header p { color: var(--muted); max-width: 560px; margin: 0 auto; font-size: 16px; }
 
-  /* Shop */
-  .shop { max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px; }
-  .shop-header { text-align: center; margin-bottom: 40px; }
-  .shop-header h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 10px; }
-  .shop-header p { color: var(--muted); max-width: 560px; margin: 0 auto; }
-
-  /* Category filter */
   .filters {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
+    padding: 8px;
+    background: white;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
   }
   .filter-btn {
-    padding: 8px 18px;
+    padding: 10px 20px;
     border-radius: 999px;
-    border: 2px solid var(--charcoal);
+    border: none;
     background: transparent;
-    color: var(--charcoal);
+    color: var(--muted);
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
     font-family: inherit;
-    transition: all 0.15s;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
-  .filter-btn.active, .filter-btn:hover {
+  .filter-btn:hover { color: var(--charcoal); }
+  .filter-btn.active {
     background: var(--charcoal);
     color: var(--cream);
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 22px;
   }
   .card {
     background: var(--card);
@@ -175,81 +236,117 @@
     text-decoration: none;
     color: inherit;
     position: relative;
+    border: 1px solid rgba(0,0,0,0.03);
   }
-  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
   .card-image {
-    aspect-ratio: 4 / 3;
-    background: linear-gradient(135deg, var(--cream-2), var(--cream));
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 60px;
+    font-size: 72px;
     position: relative;
+    background: linear-gradient(135deg, #fff2df 0%, #fce7c4 100%);
   }
+  .card[data-category="cookbook"] .card-image { background: linear-gradient(135deg, #ffe4d6 0%, #ffcaa8 100%); }
+  .card[data-category="fitness"] .card-image { background: linear-gradient(135deg, #e5f2d9 0%, #c6e2a4 100%); }
+  .card[data-category="kids"] .card-image { background: linear-gradient(135deg, #fff2c9 0%, #ffe08a 100%); }
+
   .card-badge {
     position: absolute;
     top: 12px;
     left: 12px;
+    background: white;
+    color: var(--charcoal);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .card-price-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
     background: var(--charcoal);
     color: var(--cream);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 12px;
     border-radius: 999px;
   }
-  .card-badge.cookbook { background: var(--tomato); }
-  .card-badge.fitness { background: var(--basil); }
-  .card-badge.kids { background: #d4a24c; }
-  .card-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .card-body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
   .card-title {
     font-family: 'Fraunces', serif;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 1.25;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     color: var(--charcoal);
   }
-  .card-footer {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 14px;
+  .card-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    line-height: 1.4;
   }
-  .price { font-weight: 700; font-size: 18px; color: var(--charcoal); }
-  .buy-link {
-    color: var(--tomato);
+  .card-btn {
+    margin-top: auto;
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 11px;
+    border-radius: 999px;
     font-weight: 600;
     font-size: 14px;
-    text-decoration: none;
+    transition: background 0.15s;
   }
-  .buy-link::after { content: ' →'; transition: margin 0.15s; display: inline-block; }
-  .card:hover .buy-link::after { margin-left: 4px; }
+  .card:hover .card-btn { background: var(--tomato); }
 
-  /* Footer */
+  /* ============ Footer ============ */
   footer {
     background: var(--charcoal);
     color: var(--cream);
     text-align: center;
-    padding: 44px 20px;
+    padding: 50px 20px 40px;
+    margin-top: 40px;
   }
   footer .footer-brand {
     font-family: 'Fraunces', serif;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
+  footer .footer-brand .accent { color: var(--carrot); }
   footer p { margin: 6px 0; opacity: 0.75; font-size: 14px; }
-  footer .socials { margin: 18px 0 10px; display: flex; justify-content: center; gap: 20px; }
-  footer .socials a { color: var(--cream); opacity: 0.85; }
-  footer .socials a:hover { opacity: 1; }
-  footer .socials svg { width: 22px; height: 22px; }
+  footer .socials { margin: 22px 0 14px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  footer .socials a {
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 2px solid rgba(253, 247, 236, 0.25);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  footer .socials a:hover { background: var(--carrot); border-color: var(--carrot); color: var(--charcoal); }
+  footer .socials svg { width: 18px; height: 18px; }
 
   @media (max-width: 500px) {
-    header { padding: 40px 16px 50px; }
-    .shop { padding: 30px 16px 60px; }
+    header { padding: 40px 16px 40px; }
+    .shop { padding: 30px 16px 40px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+    .card-image { font-size: 54px; }
+    .card-title { font-size: 15px; }
+    .card-body { padding: 14px; }
+    .social-bar { padding: 14px 12px; gap: 10px; }
+    .social-link { padding: 9px 16px; font-size: 14px; }
   }
 </style>
 </head>
@@ -257,93 +354,98 @@
 
 <!-- Top social bar -->
 <div class="social-bar">
-  <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" aria-label="Instagram">
+  <a class="social-link" href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" aria-label="Instagram">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.9.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.9-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7.1.1 5.8.1 5 .3 4.2.6c-.8.3-1.5.7-2.2 1.4C1.3 2.7.9 3.4.6 4.2.3 5 .1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.1.5 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.5 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.1-.2 2.9-.5.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.1-.5-2.9-.3-.8-.7-1.5-1.4-2.2C21.3 1.3 20.6.9 19.8.6 19 .3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8A6.2 6.2 0 1018.2 12 6.2 6.2 0 0012 5.8zm0 10.2A4 4 0 1116 12a4 4 0 01-4 4zm6.4-11.8a1.4 1.4 0 11-1.4-1.4 1.4 1.4 0 011.4 1.4z"/></svg>
     Instagram
   </a>
-  <a href="https://tiktok.com/@rachelskitchentable" target="_blank" rel="noopener" aria-label="TikTok">
+  <a class="social-link" href="https://www.tiktok.com/@rachelskitchentab" target="_blank" rel="noopener" aria-label="TikTok">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.3a5.7 5.7 0 01-3.4-1.1 5.7 5.7 0 01-2.1-3.3h-3.4v13.2a2.9 2.9 0 11-2.9-2.9c.2 0 .4 0 .6.1V8.8a6.4 6.4 0 00-.6 0 6.3 6.3 0 106.3 6.3V8.8a9 9 0 005.5 1.8V7.3a5.5 5.5 0 01-.1-1z"/></svg>
     TikTok
   </a>
-  <a href="https://payhip.com/RachelsFriendlyHealthyKitchen" target="_blank" rel="noopener" aria-label="Shop on Payhip">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+  <a class="social-link" href="https://payhip.com/RachelsFriendlyHealthyKitchen" target="_blank" rel="noopener" aria-label="Shop">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
     Shop
   </a>
 </div>
 
 <!-- Hero -->
 <header>
-  <h1 class="brand">Rachel's Friendly<br/><span>Healthy Kitchen</span></h1>
-  <p class="tagline">Weekly grocery hauls, easy meals, and honest recipes that keep you healthy without wrecking your budget. Come cook with me.</p>
+  <div class="veggie-decor v1">🥕</div>
+  <div class="veggie-decor v2">🥦</div>
+  <div class="veggie-decor v3">🍅</div>
+  <div class="veggie-decor v4">🥑</div>
+
+  <h1 class="brand">
+    <span class="word-1">Rachel's</span><br/>
+    <span class="word-2">Kitchen Table</span> <span class="wave">🍅</span>
+  </h1>
+  <p class="tagline">Groceries are <strong>ridiculously expensive</strong> right now — and most of us are spending way more than we should.</p>
+  <p class="mission">My mission? Cooking <em>delicious, healthy</em> meals for a fraction of the cost — so you can eat well, feel great, and actually save money. Follow along each week for real grocery hauls and easy recipes.</p>
   <div class="cta-row">
-    <a href="#shop" class="btn btn-primary">Shop the Collection</a>
-    <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" class="btn btn-ghost">Follow the Journey</a>
+    <a href="#shop" class="btn btn-primary">🛒 Shop the Collection</a>
+    <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" class="btn btn-secondary">🥬 Follow Along</a>
   </div>
 </header>
-
-<!-- About -->
-<section class="about">
-  <h2>Hey, I'm Rachel 👋</h2>
-  <p>I'm a 23-year-old soccer player who loves proving that eating well doesn't have to be expensive or complicated. Every week I share my grocery shop and the meals I make from it — and I've bundled my favourite recipes and training plans into the cookbooks and programs below.</p>
-</section>
 
 <!-- Shop -->
 <section id="shop" class="shop">
   <div class="shop-header">
-    <h2>The Shop</h2>
-    <p>Cookbooks and fitness programs — designed to be simple, affordable, and actually usable.</p>
+    <span class="eyebrow">The Shop</span>
+    <h2>Cookbooks & Programs</h2>
+    <p>Real recipes and training plans — simple, affordable, and made to actually use.</p>
   </div>
 
   <div class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="cookbook">Cookbooks</button>
-    <button class="filter-btn" data-filter="fitness">Fitness</button>
-    <button class="filter-btn" data-filter="kids">Kids & Family</button>
+    <button class="filter-btn active" data-filter="all">🌟 All</button>
+    <button class="filter-btn" data-filter="cookbook">🍳 Cookbooks</button>
+    <button class="filter-btn" data-filter="fitness">💪 Fitness</button>
+    <button class="filter-btn" data-filter="kids">🧁 Kids & Family</button>
   </div>
 
-  <div class="grid" id="product-grid">
-    <!-- Products populated by JS -->
-  </div>
+  <div class="grid" id="product-grid"></div>
 </section>
 
 <footer>
-  <div class="footer-brand">Rachel's Friendly Healthy Kitchen</div>
-  <p>Healthy eating. Real budgets. Zero fuss.</p>
+  <div class="footer-brand">Rachel's <span class="accent">Kitchen Table</span></div>
+  <p>Delicious. Healthy. Budget-friendly. 🥕</p>
   <div class="socials">
-    <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" aria-label="Instagram">
+    <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.9.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.9-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7.1.1 5.8.1 5 .3 4.2.6c-.8.3-1.5.7-2.2 1.4C1.3 2.7.9 3.4.6 4.2.3 5 .1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.1.5 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.5 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.1-.2 2.9-.5.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.1-.5-2.9-.3-.8-.7-1.5-1.4-2.2C21.3 1.3 20.6.9 19.8.6 19 .3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8A6.2 6.2 0 1018.2 12 6.2 6.2 0 0012 5.8zm0 10.2A4 4 0 1116 12a4 4 0 01-4 4zm6.4-11.8a1.4 1.4 0 11-1.4-1.4 1.4 1.4 0 011.4 1.4z"/></svg>
+      Instagram
     </a>
-    <a href="https://tiktok.com/@rachelskitchentable" target="_blank" rel="noopener" aria-label="TikTok">
+    <a href="https://www.tiktok.com/@rachelskitchentab" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.3a5.7 5.7 0 01-3.4-1.1 5.7 5.7 0 01-2.1-3.3h-3.4v13.2a2.9 2.9 0 11-2.9-2.9c.2 0 .4 0 .6.1V8.8a6.4 6.4 0 00-.6 0 6.3 6.3 0 106.3 6.3V8.8a9 9 0 005.5 1.8V7.3a5.5 5.5 0 01-.1-1z"/></svg>
+      TikTok
     </a>
-    <a href="https://payhip.com/RachelsFriendlyHealthyKitchen" target="_blank" rel="noopener" aria-label="Payhip">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    <a href="https://payhip.com/RachelsFriendlyHealthyKitchen" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Shop
     </a>
   </div>
-  <p>&copy; <span id="year"></span> Rachel's Friendly Healthy Kitchen. All rights reserved.</p>
+  <p>&copy; <span id="year"></span> Rachel's Kitchen Table. Made with love (and a lot of veggies).</p>
 </footer>
 
 <script>
   const products = [
-    { title: "The Budget Slow Cooker Cookbook", subtitle: "30 Cosy Family Dinners for Less", price: "A$9.99", url: "https://payhip.com/b/1tkHp", category: "cookbook", emoji: "🍲" },
-    { title: "The Veggie Cookbook", subtitle: "Healthy Goodness on a Budget", price: "A$9.99", url: "https://payhip.com/b/Mxu5f", category: "cookbook", emoji: "🥦" },
-    { title: "The High-Protein GLP-1 Cookbook", subtitle: "", price: "A$14.99", url: "https://payhip.com/b/qK7GN", category: "cookbook", emoji: "🍗" },
-    { title: "Gluten and Dairy Free Kitchen", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/yXe4d", category: "cookbook", emoji: "🌾" },
-    { title: "The Ultimate Cookbook for Senior Chefs", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/GXzVQ", category: "cookbook", emoji: "🍳" },
-    { title: "LEAN", subtitle: "8-Week Fat Loss Program for Men & Women", price: "A$9.99", url: "https://payhip.com/b/dIkHm", category: "fitness", emoji: "🔥" },
-    { title: "STRONG START", subtitle: "6-Week Beginner's Gym Guide for Women", price: "A$9.99", url: "https://payhip.com/b/7BLfM", category: "fitness", emoji: "💪" },
-    { title: "BUILT", subtitle: "8-Week Muscle-Building Program for Men 18–29", price: "A$9.99", url: "https://payhip.com/b/MfX7h", category: "fitness", emoji: "🏋️" },
-    { title: "The Strong Years", subtitle: "Complete Gym Guide For Women 45–60+", price: "A$9.99", url: "https://payhip.com/b/tIYlv", category: "fitness", emoji: "✨" },
-    { title: "RESET", subtitle: "The Program Designed for Men", price: "A$9.99", url: "https://payhip.com/b/b4Yqc", category: "fitness", emoji: "🔄" },
-    { title: "The Ultimate Glute Builder Program", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/eHjQJ", category: "fitness", emoji: "🍑" },
-    { title: "Fuel For Men Who Run", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/F5tua", category: "fitness", emoji: "🏃‍♂️" },
-    { title: "Fuel For Women Who Run", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/wcyOe", category: "fitness", emoji: "🏃‍♀️" },
-    { title: "Kids Craft Book For a Rainy Day", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/y1EIU", category: "kids", emoji: "🎨" },
-    { title: "Little Chef's Book of Sweet Treats", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/3nGTh", category: "kids", emoji: "🧁" },
-    { title: "The Ultimate Cookbook for Junior Chefs", subtitle: "", price: "A$9.99", url: "https://payhip.com/b/j38EL", category: "kids", emoji: "👩‍🍳" }
+    { title: "Budget Slow Cooker Cookbook", subtitle: "30 cosy family dinners for less", price: "A$9.99", url: "https://payhip.com/b/1tkHp", category: "cookbook", emoji: "🍲" },
+    { title: "The Veggie Cookbook", subtitle: "Healthy goodness on a budget", price: "A$9.99", url: "https://payhip.com/b/Mxu5f", category: "cookbook", emoji: "🥦" },
+    { title: "High-Protein GLP-1 Cookbook", subtitle: "Protein-packed everyday meals", price: "A$14.99", url: "https://payhip.com/b/qK7GN", category: "cookbook", emoji: "🍗" },
+    { title: "Gluten & Dairy Free Kitchen", subtitle: "Free-from without the fuss", price: "A$9.99", url: "https://payhip.com/b/yXe4d", category: "cookbook", emoji: "🌾" },
+    { title: "Cookbook for Senior Chefs", subtitle: "Simple, nourishing recipes", price: "A$9.99", url: "https://payhip.com/b/GXzVQ", category: "cookbook", emoji: "🍳" },
+    { title: "LEAN", subtitle: "8-week fat loss program", price: "A$9.99", url: "https://payhip.com/b/dIkHm", category: "fitness", emoji: "🔥" },
+    { title: "STRONG START", subtitle: "6-week beginner's gym guide for women", price: "A$9.99", url: "https://payhip.com/b/7BLfM", category: "fitness", emoji: "💪" },
+    { title: "BUILT", subtitle: "8-week muscle building for men 18–29", price: "A$9.99", url: "https://payhip.com/b/MfX7h", category: "fitness", emoji: "🏋️" },
+    { title: "The Strong Years", subtitle: "Complete gym guide for women 45–60+", price: "A$9.99", url: "https://payhip.com/b/tIYlv", category: "fitness", emoji: "✨" },
+    { title: "RESET", subtitle: "The program designed for men", price: "A$9.99", url: "https://payhip.com/b/b4Yqc", category: "fitness", emoji: "🔄" },
+    { title: "Ultimate Glute Builder", subtitle: "Grow, shape and strengthen", price: "A$9.99", url: "https://payhip.com/b/eHjQJ", category: "fitness", emoji: "🍑" },
+    { title: "Fuel For Men Who Run", subtitle: "Nutrition + training for runners", price: "A$9.99", url: "https://payhip.com/b/F5tua", category: "fitness", emoji: "🏃‍♂️" },
+    { title: "Fuel For Women Who Run", subtitle: "Nutrition + training for runners", price: "A$9.99", url: "https://payhip.com/b/wcyOe", category: "fitness", emoji: "🏃‍♀️" },
+    { title: "Kids Craft Book", subtitle: "For a rainy day", price: "A$9.99", url: "https://payhip.com/b/y1EIU", category: "kids", emoji: "🎨" },
+    { title: "Little Chef's Sweet Treats", subtitle: "Baking with the kids", price: "A$9.99", url: "https://payhip.com/b/3nGTh", category: "kids", emoji: "🧁" },
+    { title: "Cookbook for Junior Chefs", subtitle: "First recipes for young cooks", price: "A$9.99", url: "https://payhip.com/b/j38EL", category: "kids", emoji: "👩‍🍳" }
   ];
 
-  const categoryLabel = { cookbook: "Cookbook", fitness: "Fitness", kids: "Kids & Family" };
+  const categoryLabel = { cookbook: "Cookbook", fitness: "Fitness", kids: "Kids" };
   const grid = document.getElementById('product-grid');
 
   function render(filter = 'all') {
@@ -353,20 +455,20 @@
       .forEach(p => {
         const card = document.createElement('a');
         card.className = 'card';
+        card.dataset.category = p.category;
         card.href = p.url;
         card.target = '_blank';
         card.rel = 'noopener';
         card.innerHTML = `
           <div class="card-image">
-            <span class="card-badge ${p.category}">${categoryLabel[p.category]}</span>
+            <span class="card-badge">${categoryLabel[p.category]}</span>
+            <span class="card-price-tag">${p.price}</span>
             <span>${p.emoji}</span>
           </div>
           <div class="card-body">
-            <div class="card-title">${p.title}${p.subtitle ? `<div style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:var(--muted);margin-top:4px;">${p.subtitle}</div>` : ''}</div>
-            <div class="card-footer">
-              <span class="price">${p.price}</span>
-              <span class="buy-link">Buy on Payhip</span>
-            </div>
+            <div class="card-title">${p.title}</div>
+            <div class="card-subtitle">${p.subtitle}</div>
+            <div class="card-btn">Buy on Payhip →</div>
           </div>
         `;
         grid.appendChild(card);
