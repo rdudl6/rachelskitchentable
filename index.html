@@ -187,16 +187,23 @@
     position: relative;
     aspect-ratio: 3 / 4;
     border-radius: 16px;
-    background: linear-gradient(135deg, #fff2df 0%, #ffe0be 100%);
+    background: linear-gradient(135deg, #fff8ec 0%, #ffe0be 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible;
+    padding: 18px;
     box-shadow: 0 14px 32px rgba(43, 35, 32, 0.18), 0 4px 10px rgba(43, 35, 32, 0.08);
     transition: transform 0.25s ease;
   }
   .featured-image img {
-    border-radius: 16px;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(43, 35, 32, 0.18);
   }
   .featured-image img {
     width: 100%;
@@ -408,14 +415,19 @@
     justify-content: center;
     font-size: 72px;
     position: relative;
-    background: linear-gradient(135deg, #fff2df 0%, #fce7c4 100%);
+    background: linear-gradient(135deg, #fff8ec 0%, #fbe9c9 100%);
     overflow: hidden;
+    padding: 16px;
   }
   .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     display: block;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(43, 35, 32, 0.15);
   }
   .card-image .emoji-fallback { font-size: 72px; }
   .card[data-category="cookbook"] .card-image { background: linear-gradient(135deg, #ffe4d6 0%, #ffcaa8 100%); }
@@ -642,22 +654,22 @@
 <script>
   const products = [
     { title: "The Feel-Good Kitchen", subtitle: "High fibre family favourites — my holy grail", price: "A$19.99", url: "https://payhip.com/b/AT59q", category: "cookbook", image: "images/feel-good-kitchen.jpg" },
-    { title: "Budget Slow Cooker Cookbook", subtitle: "30 cosy family dinners for less", price: "A$12.99", url: "https://payhip.com/b/1tkHp", category: "cookbook", image: "images/slow-cooker.jpg" },
     { title: "The Veggie Cookbook", subtitle: "Healthy goodness on a budget", price: "A$12.99", url: "https://payhip.com/b/Mxu5f", category: "cookbook", image: "images/veggie.jpg" },
-    { title: "High-Protein GLP-1 Cookbook", subtitle: "Protein-packed everyday meals", price: "A$14.99", url: "https://payhip.com/b/qK7GN", category: "cookbook", image: "images/high-protein.jpg" },
+    { title: "Budget Slow Cooker Cookbook", subtitle: "30 cosy family dinners for less", price: "A$12.99", url: "https://payhip.com/b/1tkHp", category: "cookbook", image: "images/slow-cooker.jpg" },
     { title: "Gluten & Dairy Free Kitchen", subtitle: "Free-from without the fuss", price: "A$12.99", url: "https://payhip.com/b/yXe4d", category: "cookbook", image: "images/gluten-dairy-free.jpg" },
     { title: "Cookbook for Senior Chefs", subtitle: "Simple, nourishing recipes", price: "A$12.99", url: "https://payhip.com/b/GXzVQ", category: "cookbook", image: "images/senior-chefs.jpg" },
-    { title: "LEAN", subtitle: "8-week fat loss program", price: "A$12.99", url: "https://payhip.com/b/dIkHm", category: "fitness", image: "images/lean.jpg" },
-    { title: "STRONG START", subtitle: "6-week beginner's gym guide for women", price: "A$12.99", url: "https://payhip.com/b/7BLfM", category: "fitness", image: "images/strong-start.jpg" },
-    { title: "BUILT", subtitle: "8-week muscle building for men 18–29", price: "A$12.99", url: "https://payhip.com/b/MfX7h", category: "fitness", image: "images/built.jpg" },
-    { title: "The Strong Years", subtitle: "Complete gym guide for women 45–60+", price: "A$12.99", url: "https://payhip.com/b/tIYlv", category: "fitness", image: "images/strong-years.jpg" },
-    { title: "RESET", subtitle: "The program designed for men", price: "A$12.99", url: "https://payhip.com/b/b4Yqc", category: "fitness", image: "images/reset.jpg" },
-    { title: "Ultimate Glute Builder", subtitle: "Grow, shape and strengthen", price: "A$12.99", url: "https://payhip.com/b/eHjQJ", category: "fitness", image: "images/glute.jpg" },
-    { title: "Fuel For Men Who Run", subtitle: "Nutrition + training for runners", price: "A$12.99", url: "https://payhip.com/b/F5tua", category: "fitness", image: "images/men-run.jpg" },
-    { title: "Fuel For Women Who Run", subtitle: "Nutrition + training for runners", price: "A$12.99", url: "https://payhip.com/b/wcyOe", category: "fitness", image: "images/women-run.jpg" },
-    { title: "Kids Craft Book", subtitle: "For a rainy day", price: "A$12.99", url: "https://payhip.com/b/y1EIU", category: "kids", image: "images/kids-craft.jpg" },
+    { title: "High-Protein GLP-1 Cookbook", subtitle: "Protein-packed everyday meals", price: "A$12.99", url: "https://payhip.com/b/qK7GN", category: "cookbook", image: "images/high-protein.jpg" },
     { title: "Little Chef's Sweet Treats", subtitle: "Baking with the kids", price: "A$12.99", url: "https://payhip.com/b/3nGTh", category: "kids", image: "images/sweet-treats.jpg" },
-    { title: "Cookbook for Junior Chefs", subtitle: "First recipes for young cooks", price: "A$12.99", url: "https://payhip.com/b/j38EL", category: "kids", image: "images/junior-chefs.jpg" }
+    { title: "Cookbook for Junior Chefs", subtitle: "First recipes for young cooks", price: "A$12.99", url: "https://payhip.com/b/j38EL", category: "kids", image: "images/junior-chefs.jpg" },
+    { title: "Kids Craft Book", subtitle: "For a rainy day", price: "A$12.99", url: "https://payhip.com/b/y1EIU", category: "kids", image: "images/kids-craft.jpg" },
+    { title: "STRONG START", subtitle: "6-week beginner's gym guide for women", price: "A$12.99", url: "https://payhip.com/b/7BLfM", category: "fitness", image: "images/strong-start.jpg" },
+    { title: "The Strong Years", subtitle: "Complete gym guide for women 45–60+", price: "A$12.99", url: "https://payhip.com/b/tIYlv", category: "fitness", image: "images/strong-years.jpg" },
+    { title: "Ultimate Glute Builder", subtitle: "Grow, shape and strengthen", price: "A$12.99", url: "https://payhip.com/b/eHjQJ", category: "fitness", image: "images/glute.jpg" },
+    { title: "Fuel For Women Who Run", subtitle: "Nutrition + training for runners", price: "A$12.99", url: "https://payhip.com/b/wcyOe", category: "fitness", image: "images/women-run.jpg" },
+    { title: "Fuel For Men Who Run", subtitle: "Nutrition + training for runners", price: "A$12.99", url: "https://payhip.com/b/F5tua", category: "fitness", image: "images/men-run.jpg" },
+    { title: "LEAN", subtitle: "8-week fat loss program", price: "A$12.99", url: "https://payhip.com/b/dIkHm", category: "fitness", image: "images/lean.jpg" },
+    { title: "BUILT", subtitle: "8-week muscle building for men 18–29", price: "A$12.99", url: "https://payhip.com/b/MfX7h", category: "fitness", image: "images/built.jpg" },
+    { title: "RESET", subtitle: "The program designed for men", price: "A$12.99", url: "https://payhip.com/b/b4Yqc", category: "fitness", image: "images/reset.jpg" }
   ];
 
   const categoryLabel = { cookbook: "Cookbook", fitness: "Fitness", kids: "Kids" };
