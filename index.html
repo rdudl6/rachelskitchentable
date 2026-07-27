@@ -460,6 +460,21 @@
     border-radius: 999px;
     box-shadow: 0 2px 8px rgba(43, 35, 32, 0.12);
   }
+  .card-bestseller {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: var(--tomato);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 11px;
+    border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(232, 93, 58, 0.4);
+    z-index: 2;
+  }
   .card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
   .card-title {
     font-family: 'Fraunces', serif;
@@ -654,10 +669,10 @@
 
 <script>
   const products = [
-    { title: "The Feel-Good Kitchen", subtitle: "High fibre family favourites — my holy grail", price: "A$19.99", url: "https://payhip.com/b/AT59q", category: "cookbook", image: "images/feel-good-kitchen.jpg" },
+    { title: "The Feel-Good Kitchen", subtitle: "High fibre family favourites — my holy grail", price: "A$19.99", url: "https://payhip.com/b/AT59q", category: "cookbook", image: "images/feel-good-kitchen.jpg", bestseller: true },
     { title: "The Veggie Cookbook", subtitle: "Healthy goodness on a budget", price: "A$12.99", url: "https://payhip.com/b/Mxu5f", category: "cookbook", image: "images/veggie.jpg" },
     { title: "The Ultimate Cookbook for Little Chefs", subtitle: "24 real recipes kids ages 5–10 can follow themselves", price: "A$9.99", url: "https://payhip.com/b/FPim5", category: ["cookbook", "kids"], image: "images/little-chefs.jpg" },
-    { title: "Cookbook for Junior Chefs", subtitle: "First recipes for young cooks", price: "A$9.99", url: "https://payhip.com/b/j38EL", category: ["cookbook", "kids"], image: "images/junior-chefs.jpg" },
+    { title: "Cookbook for Junior Chefs", subtitle: "First recipes for young cooks", price: "A$9.99", url: "https://payhip.com/b/j38EL", category: ["cookbook", "kids"], image: "images/junior-chefs.jpg", bestseller: true },
     { title: "Cookbook for Senior Chefs", subtitle: "Simple, nourishing recipes", price: "A$9.99", url: "https://payhip.com/b/GXzVQ", category: ["cookbook", "kids"], image: "images/senior-chefs.jpg" },
     { title: "Little Chef's Sweet Treats", subtitle: "Baking with the kids", price: "A$9.99", url: "https://payhip.com/b/3nGTh", category: ["cookbook", "kids"], image: "images/sweet-treats.jpg" },
     { title: "Fuel For Women Who Run", subtitle: "Recipes to fuel your runs", price: "A$12.99", url: "https://payhip.com/b/wcyOe", category: "cookbook", image: "images/women-run.jpg" },
@@ -699,9 +714,11 @@
         const visual = p.image
           ? `<img src="${p.image}" alt="${p.title} cover" loading="lazy" />`
           : `<span class="emoji-fallback">${p.emoji}</span>`;
+        const bestseller = p.bestseller ? `<span class="card-bestseller">⭐ Bestseller</span>` : '';
         card.innerHTML = `
           <div class="card-image">
             <span class="card-badge">${categoryLabel[primaryCategory(p)]}</span>
+            ${bestseller}
             <span class="card-price-tag">${p.price}</span>
             ${visual}
           </div>
