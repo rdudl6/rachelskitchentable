@@ -103,7 +103,15 @@
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
   }
   .v1 { top: 40px; left: 6%; transform: rotate(-18deg); }
-  .v2 { top: 80px; right: 8%; transform: rotate(15deg); font-size: 56px; }
+  .v2 { top: 80px; right: 8%; font-size: 56px; animation: broccoli-dance 1.8s ease-in-out infinite; transform-origin: 50% 90%; }
+  @keyframes broccoli-dance {
+    0%   { transform: rotate(-14deg) translateY(0); }
+    20%  { transform: rotate(12deg) translateY(-8px); }
+    40%  { transform: rotate(-10deg) translateY(0); }
+    60%  { transform: rotate(14deg) translateY(-6px); }
+    80%  { transform: rotate(-8deg) translateY(0); }
+    100% { transform: rotate(-14deg) translateY(0); }
+  }
   .v3 { bottom: 20px; left: 12%; transform: rotate(10deg); font-size: 44px; }
   .v4 { bottom: 40px; right: 10%; transform: rotate(-12deg); font-size: 52px; }
   @media (max-width: 700px) { .veggie-decor { font-size: 34px !important; opacity: 0.35; } }
@@ -354,40 +362,67 @@
     font-weight: 500;
   }
 
-  .filters {
+  .shop-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 780px;
+    margin: 0 auto 44px;
+  }
+  .shop-nav-card {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
-    padding: 8px;
-    background: white;
-    border-radius: 999px;
-    box-shadow: var(--shadow);
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .filter-btn {
-    padding: 10px 20px;
-    border-radius: 999px;
-    border: none;
-    background: transparent;
-    color: var(--muted);
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.2s;
-    display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 16px;
+    padding: 20px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--charcoal);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
   }
-  .filter-btn:hover { color: var(--charcoal); }
-  .filter-btn.active {
-    background: var(--charcoal);
-    color: var(--cream);
+  .shop-nav-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .cookbooks-nav { background: linear-gradient(135deg, #fffef4 0%, #ffe8b8 100%); border-color: #f7d98a; }
+  .fitness-nav { background: linear-gradient(135deg, #f4faed 0%, #cfe6a8 100%); border-color: #a8cf7a; }
+  .shop-nav-emoji { font-size: 42px; line-height: 1; }
+  .shop-nav-title { font-family: 'Fraunces', serif; font-weight: 800; font-size: 20px; line-height: 1.2; }
+  .shop-nav-sub { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  @media (max-width: 600px) {
+    .shop-nav { grid-template-columns: 1fr; }
   }
+
+  .shop-section { scroll-margin-top: 20px; margin-bottom: 56px; }
+  .shop-section:last-child { margin-bottom: 0; }
+  .section-header {
+    margin-bottom: 22px;
+    padding: 22px 26px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .section-emoji {
+    font-size: 44px;
+    line-height: 1;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+  }
+  .section-header h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 3vw, 30px);
+    font-weight: 800;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+    line-height: 1.15;
+  }
+  .section-header p { margin: 0; color: var(--muted); font-size: 14px; }
+  .cookbooks-section .section-header { background: linear-gradient(135deg, #fff8e0 0%, #ffe4a8 100%); border-left: 6px solid var(--carrot); }
+  .fitness-section .section-header { background: linear-gradient(135deg, #edf7dc 0%, #c2df94 100%); border-left: 6px solid var(--basil); }
 
   .grid {
     display: grid;
@@ -606,10 +641,6 @@
   </h1>
   <p class="tagline">Groceries are <strong>ridiculously expensive</strong> right now — and most of us are spending way more than we should.</p>
   <p class="mission">My mission? Cooking <em>delicious, healthy</em> meals for a fraction of the cost — so you can eat well, feel great, and actually save money. Follow along each week for real grocery hauls and easy recipes.</p>
-  <div class="cta-row">
-    <a href="#shop" class="btn btn-primary">🛒 Shop the Collection</a>
-    <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" class="btn btn-secondary">🥬 Follow Along</a>
-  </div>
 </header>
 
 <!-- Featured / Holy Grail book -->
@@ -633,6 +664,10 @@
       </div>
     </div>
   </a>
+  <div class="cta-row" style="margin-top: 32px;">
+    <a href="#shop" class="btn btn-primary">🛒 Shop the Collection</a>
+    <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" class="btn btn-secondary">🥬 Follow Along</a>
+  </div>
 </section>
 
 <!-- Instagram feed hidden — LightWidget free tier doesn't support HTTPS
@@ -653,19 +688,53 @@
 <section id="shop" class="shop">
   <div class="shop-header">
     <span class="eyebrow">The Shop</span>
-    <h2>Cookbooks & Programs</h2>
-    <p>Real recipes and training plans — simple, affordable, and made to actually use.</p>
+    <h2>Two Shops, One Kitchen Table</h2>
+    <p>Pick your lane — nourish yourself in the kitchen, or get moving in the gym.</p>
     <p class="pdf-note">📩 Instant digital download — every product is a PDF eBook you'll receive by email. No physical copies shipped.</p>
   </div>
 
-  <div class="filters">
-    <button class="filter-btn" data-filter="all">🌟 All</button>
-    <button class="filter-btn active" data-filter="cookbook">🍳 Cookbooks</button>
-    <button class="filter-btn" data-filter="fitness">💪 Fitness</button>
-    <button class="filter-btn" data-filter="kids">🧁 Kids & Family</button>
+  <div class="shop-nav">
+    <a href="#cookbooks-shop" class="shop-nav-card cookbooks-nav">
+      <span class="shop-nav-emoji">🍳</span>
+      <div>
+        <div class="shop-nav-title">The Cookbook Shop</div>
+        <div class="shop-nav-sub">Recipes, meal plans & family favourites</div>
+      </div>
+    </a>
+    <a href="#fitness-shop" class="shop-nav-card fitness-nav">
+      <span class="shop-nav-emoji">💪</span>
+      <div>
+        <div class="shop-nav-title">Gym & Running Programs</div>
+        <div class="shop-nav-sub">Training plans for every level</div>
+      </div>
+    </a>
   </div>
 
-  <div class="grid" id="product-grid"></div>
+  <div id="cookbooks-shop" class="shop-section cookbooks-section">
+    <div class="section-header">
+      <div class="section-header-inner">
+        <span class="section-emoji">🍳</span>
+        <div>
+          <h3>The Cookbook Shop</h3>
+          <p>Real recipes for real life — healthy, budget-friendly and family-tested.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid" id="cookbooks-grid"></div>
+  </div>
+
+  <div id="fitness-shop" class="shop-section fitness-section">
+    <div class="section-header">
+      <div class="section-header-inner">
+        <span class="section-emoji">💪</span>
+        <div>
+          <h3>Gym & Running Programs</h3>
+          <p>From your first 5K to full-body strength — train smarter, not harder.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid" id="fitness-grid"></div>
+  </div>
 </section>
 
 <footer>
@@ -702,7 +771,10 @@
     { title: "Budget Slow Cooker Cookbook", subtitle: "30 cosy family dinners for less", price: "A$12.99", url: "https://payhip.com/b/1tkHp", category: "cookbook", image: "images/slow-cooker.jpg" },
     { title: "Gluten & Dairy Free Kitchen", subtitle: "Free-from without the fuss", price: "A$12.99", url: "https://payhip.com/b/yXe4d", category: "cookbook", image: "images/gluten-dairy-free.jpg", bestseller: true },
     { title: "High-Protein GLP-1 Cookbook", subtitle: "Protein-packed everyday meals", price: "A$12.99", url: "https://payhip.com/b/qK7GN", category: "cookbook", image: "images/high-protein.jpg" },
-    { title: "Kids Craft Book", subtitle: "For a rainy day", price: "A$9.99", url: "https://payhip.com/b/y1EIU", category: "kids", image: "images/kids-craft.jpg" },
+    { title: "Kids Craft Book", subtitle: "For a rainy day", price: "A$9.99", url: "https://payhip.com/b/y1EIU", category: "cookbook", image: "images/kids-craft.jpg" },
+    { title: "Couch to 5K", subtitle: "Beginner-friendly plan to run your first 5K", price: "A$12.99", url: "https://payhip.com/b/TYmOu", category: "fitness", image: "images/couch-to-5k.jpg" },
+    { title: "Half Marathon Plan", subtitle: "Structured training to conquer 21.1km", price: "A$12.99", url: "https://payhip.com/b/gJhNW", category: "fitness", image: "images/half-marathon.jpg" },
+    { title: "Marathon Plan", subtitle: "16-week program to cross the 42.2km finish line", price: "A$12.99", url: "https://payhip.com/b/1Unw8", category: "fitness", image: "images/marathon.jpg" },
     { title: "At-Home, No Equipment Needed", subtitle: "8-week bodyweight program for women — 4 × 25min sessions", price: "A$12.99", url: "https://payhip.com/b/wcOMX", category: "fitness", image: "images/no-equipment.jpg" },
     { title: "STRONG START", subtitle: "6-week beginner's gym guide for women", price: "A$12.99", url: "https://payhip.com/b/7BLfM", category: "fitness", image: "images/strong-start.jpg" },
     { title: "The Strong Years", subtitle: "Complete gym guide for women 45–60+", price: "A$12.99", url: "https://payhip.com/b/tIYlv", category: "fitness", image: "images/strong-years.jpg" },
@@ -713,59 +785,50 @@
     { title: "RESET", subtitle: "The program designed for men", price: "A$12.99", url: "https://payhip.com/b/b4Yqc", category: "fitness", image: "images/reset.jpg" }
   ];
 
-  const categoryLabel = { cookbook: "Cookbook", fitness: "Fitness", kids: "Kids" };
-  const grid = document.getElementById('product-grid');
+  const categoryLabel = { cookbook: "Cookbook", fitness: "Program", kids: "Kids" };
 
   function inCategory(p, filter) {
-    if (filter === 'all') return true;
     const cats = Array.isArray(p.category) ? p.category : [p.category];
     return cats.includes(filter);
   }
   function primaryCategory(p) {
     return Array.isArray(p.category) ? p.category[0] : p.category;
   }
-  function render(filter = 'all') {
+  function buildCard(p) {
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.dataset.category = primaryCategory(p);
+    card.href = p.url;
+    card.target = '_blank';
+    card.rel = 'noopener';
+    const visual = p.image
+      ? `<img src="${p.image}" alt="${p.title} cover" loading="lazy" />`
+      : `<span class="emoji-fallback">${p.emoji}</span>`;
+    const bestseller = p.bestseller ? `<span class="card-bestseller">⭐ Bestseller</span>` : '';
+    card.innerHTML = `
+      <div class="card-image">
+        <span class="card-badge">${categoryLabel[primaryCategory(p)]}</span>
+        ${bestseller}
+        <span class="card-price-tag">${p.price}</span>
+        ${visual}
+      </div>
+      <div class="card-body">
+        <div class="card-title">${p.title}</div>
+        <div class="card-subtitle">${p.subtitle}</div>
+        <div class="card-format">📄 Digital PDF</div>
+        <div class="card-btn">Buy on Payhip →</div>
+      </div>
+    `;
+    return card;
+  }
+  function renderInto(gridId, filter) {
+    const grid = document.getElementById(gridId);
     grid.innerHTML = '';
-    products
-      .filter(p => inCategory(p, filter))
-      .forEach(p => {
-        const card = document.createElement('a');
-        card.className = 'card';
-        card.dataset.category = primaryCategory(p);
-        card.href = p.url;
-        card.target = '_blank';
-        card.rel = 'noopener';
-        const visual = p.image
-          ? `<img src="${p.image}" alt="${p.title} cover" loading="lazy" />`
-          : `<span class="emoji-fallback">${p.emoji}</span>`;
-        const bestseller = p.bestseller ? `<span class="card-bestseller">⭐ Bestseller</span>` : '';
-        card.innerHTML = `
-          <div class="card-image">
-            <span class="card-badge">${categoryLabel[primaryCategory(p)]}</span>
-            ${bestseller}
-            <span class="card-price-tag">${p.price}</span>
-            ${visual}
-          </div>
-          <div class="card-body">
-            <div class="card-title">${p.title}</div>
-            <div class="card-subtitle">${p.subtitle}</div>
-            <div class="card-format">📄 Digital PDF</div>
-            <div class="card-btn">Buy on Payhip →</div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
+    products.filter(p => inCategory(p, filter)).forEach(p => grid.appendChild(buildCard(p)));
   }
 
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      render(btn.dataset.filter);
-    });
-  });
-
-  render('cookbook');
+  renderInto('cookbooks-grid', 'cookbook');
+  renderInto('fitness-grid', 'fitness');
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
