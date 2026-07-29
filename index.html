@@ -170,25 +170,48 @@
 
   /* ============ Featured book ============ */
   .featured {
-    max-width: 860px;
+    max-width: 1100px;
     margin: 20px auto 0;
     padding: 0 20px;
   }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  @media (max-width: 820px) {
+    .featured-grid { grid-template-columns: 1fr; }
+  }
   .featured-card {
     display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 32px;
+    grid-template-columns: 180px 1fr;
+    gap: 22px;
     align-items: center;
     background: white;
     border: 2px solid var(--cream-2);
     border-radius: 24px;
-    padding: 28px;
+    padding: 22px;
     box-shadow: var(--shadow);
     text-decoration: none;
     color: inherit;
     transition: transform 0.25s, box-shadow 0.25s;
     position: relative;
   }
+  .featured-card.challenge-card { border-color: #c2df94; background: linear-gradient(135deg, #ffffff 0%, #f4faed 100%); }
+  .challenge-card .featured-badge { background: var(--basil); color: white; }
+  .challenge-card .featured-tagline { color: var(--basil-dark); }
+  .challenge-card .featured-image { background: linear-gradient(135deg, #f4faed 0%, #cfe6a8 100%); }
+  .challenge-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .challenge-meta strong { color: var(--basil-dark); }
   .featured-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
   .featured-card:hover .featured-image { transform: rotate(-2deg) scale(1.02); }
   .featured-image {
@@ -252,7 +275,7 @@
   }
   .featured-title {
     font-family: 'Fraunces', serif;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 6px;
@@ -643,27 +666,52 @@
   <p class="mission">My mission? Cooking <em>delicious, healthy</em> meals for a fraction of the cost — so you can eat well, feel great, and actually save money. Follow along each week for real grocery hauls and easy recipes.</p>
 </header>
 
-<!-- Featured / Holy Grail book -->
+<!-- Featured pair: Holy Grail cookbook + Current Challenge -->
 <section class="featured">
-  <a href="https://payhip.com/b/AT59q" target="_blank" rel="noopener" class="featured-card">
-    <div class="featured-image">
-      <img src="images/feel-good-kitchen.jpg" alt="The Feel-Good Kitchen cookbook cover" />
-      <span class="sparkle s1">✨</span>
-      <span class="sparkle s2">✨</span>
-      <span class="sparkle s3">⭐</span>
-      <span class="sparkle s4">✨</span>
-    </div>
-    <div class="featured-body">
-      <span class="featured-badge">⭐ Holy Grail</span>
-      <h2 class="featured-title">The Feel-Good Kitchen</h2>
-      <div class="featured-tagline">High Fibre Family Favourites</div>
-      <p class="featured-desc">All my go-to recipes in one place. Eat well without spending a fortune or a whole evening in the kitchen. <strong>Digital PDF — instant download.</strong></p>
-      <div class="featured-cta">
-        <span class="featured-price">A$19.99</span>
-        <span class="featured-btn">Get the Cookbook →</span>
+  <div class="featured-grid">
+    <a href="https://payhip.com/b/AT59q" target="_blank" rel="noopener" class="featured-card">
+      <div class="featured-image">
+        <img src="images/feel-good-kitchen.jpg" alt="The Feel-Good Kitchen cookbook cover" />
+        <span class="sparkle s1">✨</span>
+        <span class="sparkle s2">✨</span>
+        <span class="sparkle s3">⭐</span>
+        <span class="sparkle s4">✨</span>
       </div>
-    </div>
-  </a>
+      <div class="featured-body">
+        <span class="featured-badge">⭐ Holy Grail</span>
+        <h2 class="featured-title">The Feel-Good Kitchen</h2>
+        <div class="featured-tagline">40 High Fibre Family Favourites</div>
+        <p class="featured-desc">Most of what I cook comes from this book — 40 go-to recipes in one place. <strong>Digital PDF — instant download.</strong></p>
+        <div class="featured-cta">
+          <span class="featured-price">A$19.99</span>
+          <span class="featured-btn">Get the Cookbook →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://payhip.com/b/TYmOu" target="_blank" rel="noopener" class="featured-card challenge-card">
+      <div class="featured-image">
+        <img src="images/couch-to-5k.jpg" alt="Couch to 5K program cover" />
+        <span class="sparkle s1">🏃‍♀️</span>
+        <span class="sparkle s2">✨</span>
+      </div>
+      <div class="featured-body">
+        <span class="featured-badge">🔥 Current Challenge</span>
+        <h2 class="featured-title">Couch to 5K</h2>
+        <div class="featured-tagline">Follow along with me!</div>
+        <div class="challenge-meta">
+          <span><strong>Starts:</strong> Monday 3 August</span>
+          <span><strong>Where:</strong> I'll be vlogging every run on my Instagram stories</span>
+        </div>
+        <p class="featured-desc">Grab the program and do it with me — daily story check-ins, honest updates, and a 5K finish line in 9 weeks.</p>
+        <div class="featured-cta">
+          <span class="featured-price">A$12.99</span>
+          <span class="featured-btn">Join the Challenge →</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
   <div class="cta-row" style="margin-top: 32px;">
     <a href="#shop" class="btn btn-primary">🛒 Shop the Collection</a>
     <a href="https://instagram.com/rachelskitchentable" target="_blank" rel="noopener" class="btn btn-secondary">🥬 Follow Along</a>
