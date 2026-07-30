@@ -586,6 +586,68 @@
   }
   .card:hover .card-btn { background: var(--tomato); }
 
+  /* ============ FAQ ============ */
+  .faq {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+  }
+  .faq-header { text-align: center; margin-bottom: 28px; }
+  .faq-header .eyebrow {
+    display: inline-block;
+    background: var(--basil);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .faq-header h2 { font-size: clamp(26px, 3.4vw, 34px); margin-bottom: 8px; }
+  .faq-header p { color: var(--muted); margin: 0; font-size: 15px; }
+  .faq-item {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item[open] { box-shadow: var(--shadow-hover); }
+  .faq-item summary {
+    padding: 18px 22px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--charcoal);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Inter', sans-serif;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--basil);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-answer {
+    padding: 0 22px 20px;
+    color: var(--charcoal);
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
   /* ============ Footer ============ */
   footer {
     background: linear-gradient(180deg, #eaf5db 0%, #d4ebbf 100%);
@@ -783,6 +845,45 @@
     </div>
     <div class="grid" id="fitness-grid"></div>
   </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-header">
+    <span class="eyebrow">FAQ</span>
+    <h2>Questions before you buy?</h2>
+    <p>The quick answers to what people ask me most.</p>
+  </div>
+
+  <details class="faq-item">
+    <summary>How do I get my book or program after I buy?</summary>
+    <div class="faq-answer">Instantly by email as a PDF — no waiting, no shipping.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Can I read it on my phone?</summary>
+    <div class="faq-answer">Yes, it's a PDF — works on phone, tablet, laptop, or you can print it.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Are the recipes suitable for beginners?</summary>
+    <div class="faq-answer">Yes — every recipe is written for a home cook, not a chef.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>I'm not fit at all — can I do Couch to 5K?</summary>
+    <div class="faq-answer">That's exactly who it's built for. If you can walk, you can start.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Do I need a gym for the programs?</summary>
+    <div class="faq-answer">Depends on the program — At-Home No Equipment needs zero gear, others need basic dumbbells.</div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Are these Australian measurements?</summary>
+    <div class="faq-answer">Yes, grams and mL — no cups.</div>
+  </details>
 </section>
 
 <footer>
